@@ -10,21 +10,21 @@ function Calculator(a, b) {
     this.b = b;
     this.sum = function() {
         return this.a + this.b;
-    }
+    };
     this.substraction = function() {
         return this.a - this.b;
-    }
+    };
     this.multiplication = function() {
         return this.a * this.b;
-    }
+    };
     this.division = function () {
         return this.a / this.b;
-    }
-}
+    };
+};
 
-const Calculator1 = new Calculator();
+const calculator1 = new Calculator();
 
-Calculator1.sum(3, 10);
-Calculator1.substraction(20, 15);
-Calculator1.multiplication(12, 12);
-Calculator1.division(21, 3);
+calculator1.sum(3, 10);
+calculator1.substraction(20, 15);
+calculator1.multiplication(12, 12);
+calculator1.division(21, 3);

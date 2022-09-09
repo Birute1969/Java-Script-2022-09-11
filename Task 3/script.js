@@ -13,4 +13,17 @@ turėti bent minimalų stilių ir būti responsive;
 
 const ENDPOINT = 'https://api.github.com/users';
 
+const output = document.getElementById('output');
+const btn = document.getElementById('btn');
 
+btn.addEventListener('click', getUsers);
+
+//const response = fetch(ENDPOINT);
+
+function getUsers() {
+    fetch(ENDPOINT)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);//pasitikrinu konsoleje
+        })
+}
