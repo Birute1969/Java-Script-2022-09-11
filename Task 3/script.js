@@ -16,9 +16,42 @@ const ENDPOINT = 'https://api.github.com/users';
 const output = document.getElementById('output');
 const btn = document.getElementById('btn');
 
-btn.addEventListener('click', getUsers);
+btn.addEventListener('click', (event) => {
+    event.preventDefault();
+})
 
-//const response = fetch(ENDPOINT);
+const renderUserCard = (user) => {
+    const login = output.createElement('h3');
+    login.innerText = `${user.login}`;
+
+    const avatarUrl = output.createElement('h5');
+    avatarUrl.innerText = user.avatar_url;
+
+    const card = output.createElement('div');
+    card.append(login, avatarUrl);
+    output.append(card);
+};
+
+
+const fetchUsers = async () => {
+    try {
+        const response = await fetch('https://api.github.com/users');
+        if (response.ok) {
+            const data = await response.json();
+            renderUserCard(data.results[0]);
+        }
+    } catch(error) {
+        console.log(error);
+    }
+};
+
+fetchUsers();
+
+
+//sprendimas jei islogini viska konsoleje:
+//btn.addEventListener('click', getUsers);
+
+/*const response = fetch(ENDPOINT);
 
 function getUsers() {
     fetch(ENDPOINT)
@@ -26,4 +59,4 @@ function getUsers() {
         .then((data) => {
             console.log(data);//pasitikrinu konsoleje
         })
-}
+}*/

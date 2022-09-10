@@ -10,4 +10,3 @@ const btnstate = document.getElementById('btn__state');
 btnelement.addEventListener('click', () => {
     btnstate.innerHTML++;
 });
-
